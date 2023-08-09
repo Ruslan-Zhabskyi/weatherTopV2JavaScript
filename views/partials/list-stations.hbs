@@ -1,0 +1,100 @@
+
+<style>
+    .card {
+        height: 100%;
+    }
+</style>
+
+
+{{#each stations}}
+
+<div class="content box">
+    <h1 class="title">
+        {{name}}
+    </h1>
+
+    <div class="columns">
+
+        <div class="column is-one-fifth">
+
+            <div class="card cards">
+                <div class="card-content">
+                    <div class="content has-text-centered">
+                        <h2>{{name}}</h2>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column is-one-fifth">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-centered">
+                        <h2>Weather</h2>
+                        {{weatherCodeDecrypted}}
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column is-one-fifth">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-centered">
+                        <h2>Temp</h2>
+                        {{latestReading.temperature}} C <br>
+                        {{temperatureInF}} F
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column is-one-fifth">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-centered">
+                        <h2>Wind</h2>
+                        {{windBft}} bft
+                        ({{windBftLabel}}) <br>
+                        {{windDirection}} <br>
+                        Feels like: {{windChill}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column is-one-fifth">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-centered">
+                        <h2>pressure</h2>
+                        {{latestReading.pressure}} hpa
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <a href="/station/{{_id}}" class="button">
+        {{>icons/open}}
+    </a>
+    <a href="/dashboard/deleteplaylist/{{_id}}" class="button">
+        {{>icons/delete}}
+    </a>
+</div>
+{{/each}}
