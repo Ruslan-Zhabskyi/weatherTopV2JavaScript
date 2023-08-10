@@ -3,27 +3,31 @@ import { readingStore } from "../models/readings-store.js";
 import {stationAnalytics} from "../utils/analytics.js";
 import {conversions} from "../utils/conversions.js";
 
+
 export const stationController = {
   async index(request, response) {
+    
+
+    
     const station = await stationStore.getStationById(request.params.id);
+    
     const latestReading = await stationAnalytics.getLatestReading(station._id);
-    const temperatureInF = await conversions.convertToFahrenheit(latestReading.temperature);
-    const weatherCodeDecrypted = await conversions.weatherCodes(latestReading.code);
-    const windBft = await conversions.windSpeedBeaufortConversion(latestReading.windSpeed);
-    const windBftLabel = await conversions.windSpeedBeaufortConversionLabel(latestReading.windSpeed);
-    const windChill = await conversions.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
-    const windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection)
+    
+     if (latestReading!=null){
+     latestReading.temperatureInF = await conversions.convertToFahrenheit(latestReading.temperature);
+     latestReading.weatherCodeDecrypted = await conversions.weatherCodes(latestReading.code);
+     latestReading.windBft = await conversions.windSpeedBeaufortConversion(latestReading.windSpeed);
+     latestReading.windBftLabel = await conversions.windSpeedBeaufortConversionLabel(latestReading.windSpeed);
+     latestReading.windChill = await conversions.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
+    latestReading.windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection);} 
+    
+    
     
     const viewData = {
       title: "Station",
       station: station,
-      latestReading:latestReading,
-      temperatureInF: temperatureInF,
-      weatherCodeDecrypted:weatherCodeDecrypted,
-      windBft:windBft,
-      windBftLabel:windBftLabel,
-      windDirection:windDirection,
-      windChill: windChill
+      latestReading:latestReading
+      
       
     };
     response.render("station-view", viewData);

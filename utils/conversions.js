@@ -8,7 +8,8 @@ export const conversions = {
   
   weatherCodes(option) {
     switch (option) {
-      case 100:
+      case 
+        100:
         return "Clear";
       case 200:
         return "Partial clouds";

@@ -21,8 +21,8 @@
                 <div class="card-content">
                     <div class="content has-text-centered">
                         <h2>{{name}}</h2>
-                        <br>
-                        <br>
+                        Lat: {{latitude}} <br>
+                        Lng: {{longitude}}
                     </div>
                 </div>
             </div>
@@ -36,8 +36,6 @@
                     <div class="content has-text-centered">
                         <h2>Weather</h2>
                         {{weatherCodeDecrypted}}
-                        <br>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -50,7 +48,7 @@
                 <div class="card-content">
                     <div class="content has-text-centered">
                         <h2>Temp</h2>
-                        {{latestReading.temperature}} C <br>
+                        {{temperature}} C <br>
                         {{temperatureInF}} F
                     </div>
                 </div>
@@ -80,9 +78,7 @@
                 <div class="card-content">
                     <div class="content has-text-centered">
                         <h2>pressure</h2>
-                        {{latestReading.pressure}} hpa
-                        <br>
-                        <br>
+                        {{pressure}} hpa
                     </div>
                 </div>
             </div>
