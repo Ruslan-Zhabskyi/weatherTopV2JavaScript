@@ -1,21 +1,23 @@
 {
   "file": "./models/stations.json",
-
-   "stations": [
+  "stations": [
     {
-      "_id": "01",
-      "name": "Tramore"
-     
+      "name": "Tramore",
+      "latitude": 52.16,
+      "longitude": -7.152,
+      "_id": "01"
     },
     {
-      "_id": "05",
-      "name": "Dunmore"
+      "name": "Dunmore",
+      "latitude": 54.84,
+      "longitude": -8.49,
+      "_id": "05"
     },
     {
       "name": "Malahide",
+      "latitude": 53.45,
+      "longitude": -6.2,
       "_id": "12a29dc3-0b6e-4ba0-9817-63e281ff8010"
     }
   ]
 }
-
-

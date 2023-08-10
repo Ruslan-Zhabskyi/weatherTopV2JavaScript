@@ -26,8 +26,8 @@
 
                     <div class="content has-text-centered">
                         <h2> {{station.name}}</h2>
-                        <br>
-                        <br>
+                      Lat: {{station.latitude}} <br>
+                      Lng: {{station.longitude}}
                     </div>
 
                 </div>
@@ -44,9 +44,8 @@
 
                     <div class="content has-text-centered">
                         <h2>Weather</h2>
-                      {{weatherCodeDecrypted}}
-                        <br>
-                        <br>
+                      {{latestReading.weatherCodeDecrypted}}
+                      
                     </div>
 
                 </div>
@@ -62,7 +61,7 @@
                     <div class="content has-text-centered">
                         <h2>Temp</h2>
                        {{latestReading.temperature}} C <br>
-                      {{temperatureInF}} F
+                      {{latestReading.temperatureInF}} F
                     </div>
 
                 </div>
@@ -77,10 +76,10 @@
 
                     <div class="content has-text-centered">
                         <h2>Wind</h2>
-                       {{windBft}} bft 
-                       ({{windBftLabel}}) <br>
-                      {{windDirection}} <br>
-                       Feels like: {{windChill}}
+                       {{latestReading.windBft}} bft 
+                       ({{latestReading.windBftLabel}}) <br>
+                      {{latestReading.windDirection}} <br>
+                       Feels like: {{latestReading.windChill}}
                     </div>
 
                 </div>
@@ -96,8 +95,6 @@
                     <div class="content has-text-centered">
                         <h2>pressure</h2>
                        {{latestReading.pressure}} hpa
-                        <br>
-                        <br>
                     </div>
 
                 </div>
