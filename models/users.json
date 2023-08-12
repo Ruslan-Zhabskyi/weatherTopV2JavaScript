@@ -1,0 +1,19 @@
+{
+  "file": "./models/users.json",
+  "users": [
+    {
+      "firstName": "Ruslan",
+      "lastName": "Zhabskyi",
+      "email": "zhabskyi@test.ie",
+      "password": "111",
+      "_id": "39d512fd-c427-463c-bfd4-2f99055ae270"
+    },
+    {
+      "firstName": "Mariya",
+      "lastName": "Zhabska",
+      "email": "zhabska@test.ie",
+      "password": "222",
+      "_id": "7dedb76d-2a1e-4fa5-8b03-c58d0887c7d0"
+    }
+  ]
+}

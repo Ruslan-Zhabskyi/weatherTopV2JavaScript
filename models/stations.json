@@ -5,19 +5,29 @@
       "name": "Tramore",
       "latitude": 52.16,
       "longitude": -7.152,
+      "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "01"
     },
     {
       "name": "Dunmore",
       "latitude": 54.84,
       "longitude": -8.49,
+      "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "05"
     },
     {
       "name": "Malahide",
       "latitude": 53.45,
       "longitude": -6.2,
+      "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "12a29dc3-0b6e-4ba0-9817-63e281ff8010"
+    },
+    {
+      "name": "Howth ",
+      "latitude": 53.378569,
+      "longitude": -6.057013,
+      "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
+      "_id": "9400cc7e-e29a-4796-b99c-63137e477860"
     }
   ]
 }
