@@ -6,11 +6,11 @@ import {conversions} from "../utils/conversions.js";
 
 export const stationController = {
   async index(request, response) {
-    
-
-    
+  
     const station = await stationStore.getStationById(request.params.id);
-    
+
+    const minMaxStats = await stationAnalytics.calculateMinMaxStats(station);
+
     const latestReading = await stationAnalytics.getLatestReading(station._id);
     
      if (latestReading!=null){
@@ -19,16 +19,16 @@ export const stationController = {
      latestReading.windBft = await conversions.windSpeedBeaufortConversion(latestReading.windSpeed);
      latestReading.windBftLabel = await conversions.windSpeedBeaufortConversionLabel(latestReading.windSpeed);
      latestReading.windChill = await conversions.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
-    latestReading.windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection);} 
+     latestReading.windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection);} 
     
     
     
     const viewData = {
       title: "Station",
       station: station,
-      latestReading:latestReading
-      
-      
+      latestReading:latestReading,
+      minMaxStats: minMaxStats
+  
     };
     response.render("station-view", viewData);
   },

@@ -49,7 +49,9 @@
                     <div class="content has-text-centered">
                         <h2>Temp</h2>
                         {{temperature}} C <br>
-                        {{temperatureInF}} F
+                        {{temperatureInF}} F <br>
+                        Min: {{minMaxStats.minTemperature}} <br>
+                        Max: {{minMaxStats.maxTemperature}} 
                     </div>
                 </div>
             </div>
@@ -65,7 +67,9 @@
                         {{windBft}} bft
                         ({{windBftLabel}}) <br>
                         {{windDirection}} <br>
-                        Feels like: {{windChill}}
+                        Feels like: {{windChill}} <br>
+                        Min: {{minMaxStats.minWindSpeed}} <br>
+                        Max: {{minMaxStats.maxWindSpeed}}
                     </div>
                 </div>
             </div>
@@ -77,8 +81,10 @@
             <div class="card">
                 <div class="card-content">
                     <div class="content has-text-centered">
-                        <h2>pressure</h2>
-                        {{pressure}} hpa
+                        <h2>Pressure</h2>
+                        {{pressure}} hpa <br>
+                        Min: {{minMaxStats.minPressure}} hpa<br>
+                        Max: {{minMaxStats.maxPressure}} hpa
                     </div>
                 </div>
             </div>
