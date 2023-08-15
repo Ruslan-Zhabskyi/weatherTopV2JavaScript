@@ -25,7 +25,9 @@
                 <div class="card-content">
 
                     <div class="content has-text-centered">
-                        <h2> {{station.name}}</h2>
+                        <h2> {{station.name}}
+                      <i class="fas fa-location-dot"></i>
+                      </h2>
                       Lat: {{station.latitude}} <br>
                       Lng: {{station.longitude}}
                     </div>
@@ -43,8 +45,30 @@
                 <div class="card-content">
 
                     <div class="content has-text-centered">
-                        <h2>Weather</h2>
-                      {{latestReading.weatherCodeDecrypted}}
+                        <h2>Weather
+                      
+                          {{#if (eq latestReading.weatherCodeDecrypted 'Rain')}}
+                              <i class="fas fa-cloud-rain"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Cloudy')}}
+                              <i class="fas fa-cloud"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Partial clouds')}}
+                              <i class="fas fa-cloud-sun"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Clear')}}
+                              <i class="fas fa-sun"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Light Showers')}}
+                              <i class="fas fa-cloud-sun-rain"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Heavy Showers')}}
+                              <i class="fas fa-cloud-showers-heavy"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Snow')}}
+                              <i class="fas fa-snowflake"></i>
+                          {{else if (eq latestReading.weatherCodeDecrypted 'Thunder')}}
+                              <i class="fas fa-cloud-bolt"></i>
+                          {{else}}
+                              <i></i>
+                      {{/if}}
+                      
+                      </h2>
+                      {{latestReading.weatherCodeDecrypted}} <br>
                       
                     </div>
 
@@ -59,11 +83,31 @@
                 <div class="card-content">
 
                     <div class="content has-text-centered">
-                        <h2>Temp</h2>
+                        <h2>Temp
+                          {{#if (gte latestReading.temperature 20)}}
+                          <i class="fas fa-temperature-high"></i>  
+                          {{else if (gte latestReading.temperature 10)}}
+                           <i class="fas fa-temperature-half"></i>
+                          {{else if (lt latestReading.temperature 10)}}
+                           <i class="fas fa-temperature-low"></i>
+                      {{else}}
+                          <i></i>
+                          {{/if}}
+                          
+                          {{#if (eq stationTrends.temperatureTrend 'increasing')}}
+                          <i class="fas fa-arrow-up"></i>
+                      {{else if (eq stationTrends.temperatureTrend 'decreasing' )}}
+                             <i class="fas fa-arrow-down"></i>
+                      {{else}}
+                      <i></i>
+                      {{/if}}
+                              
+                      </h2>
                        {{latestReading.temperature}} C <br>
                       {{latestReading.temperatureInF}} F <br>
                       Min: {{minMaxStats.minTemperature}} <br>
-                      Max: {{minMaxStats.maxTemperature}} 
+                      Max: {{minMaxStats.maxTemperature}} <br>
+                     Trend: {{stationTrends.temperatureTrend}}
                     </div>
 
                 </div>
@@ -77,13 +121,25 @@
                 <div class="card-content">
 
                     <div class="content has-text-centered">
-                        <h2>Wind</h2>
+                        <h2>Wind
+                      <i class="fas fa-wind"></i>
+                          
+                       {{#if (eq stationTrends.windSpeedTrend 'increasing')}}
+                          <i class="fas fa-arrow-up"></i>
+                      {{else if (eq stationTrends.windSpeedTrend 'decreasing' )}}
+                             <i class="fas fa-arrow-down"></i>
+                      {{else}}
+                      <i></i>
+                      {{/if}}
+                      
+                          
+                      </h2>
                        {{latestReading.windBft}} bft 
                        ({{latestReading.windBftLabel}}) <br>
                        {{latestReading.windDirection}} <br>
                        Feels like: {{latestReading.windChill}} <br>
                        Min: {{minMaxStats.minWindSpeed}} <br>
-                       Max: {{minMaxStats.maxWindSpeed}}
+                       Max: {{minMaxStats.maxWindSpeed}}          
                     </div>
 
                 </div>
@@ -97,10 +153,23 @@
                 <div class="card-content">
 
                     <div class="content has-text-centered">
-                        <h2>Pressure</h2>
+                        <h2>Pressure
+                      <i class="fas fa-gauge"></i>
+                          
+                      {{#if (eq stationTrends.pressureTrend 'increasing')}}
+                          <i class="fas fa-arrow-up"></i>
+                      {{else if (eq stationTrends.pressureTrend 'decreasing' )}}
+                          <i class="fas fa-arrow-down"></i>
+                      {{else}}
+                      <i></i>
+                      {{/if}}
+                              
+                          
+                      </h2>
                        {{latestReading.pressure}} hpa <br>
                       Min: {{minMaxStats.minPressure}} hpa <br>
-                      Max: {{minMaxStats.maxPressure}} hpa
+                      Max: {{minMaxStats.maxPressure}} hpa <br>
+                      Trend: {{stationTrends.pressureTrend}}
                     </div>
 
                 </div>
@@ -114,4 +183,3 @@
   {{> add-reading}}
 
   
-</section>

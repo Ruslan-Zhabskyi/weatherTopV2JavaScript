@@ -20,6 +20,59 @@ export const stationAnalytics = {
 
   },
   
+  async showWeatherTrends(station) {
+  const weatherTrends = {
+    pressureTrend: null,
+    temperatureTrend: null,
+    windSpeedTrend: null,
+ 
+  };
+
+  if (station.readings.length >= 3) {
+    const latestReading = station.readings[station.readings.length - 1];
+    const secondLatestReading = station.readings[station.readings.length - 2];
+    const thirdLatestReading = station.readings[station.readings.length - 3];
+
+    if (
+      latestReading.pressure > secondLatestReading.pressure &&
+      secondLatestReading.pressure > thirdLatestReading.pressure
+    ) {
+      weatherTrends.pressureTrend = 'increasing';
+    } else if (
+      latestReading.pressure < secondLatestReading.pressure &&
+      secondLatestReading.pressure < thirdLatestReading.pressure
+    ) {
+      weatherTrends.pressureTrend = 'decreasing';
+    }
+  
+   if (
+      latestReading.temperature > secondLatestReading.temperature &&
+      secondLatestReading.temperature > thirdLatestReading.temperature
+    ) {
+      weatherTrends.temperatureTrend = 'increasing';
+    } else if (
+      latestReading.temperature < secondLatestReading.temperature &&
+      secondLatestReading.temperature < thirdLatestReading.temperature
+    ) {
+      weatherTrends.temperatureTrend = 'decreasing';
+    }
+    
+       if (
+      latestReading.windSpeed > secondLatestReading.windSpeed &&
+      secondLatestReading.windSpeed > thirdLatestReading.windSpeed
+    ) {
+      weatherTrends.windSpeedTrend = 'increasing';
+    } else if (
+      latestReading.windSpeed < secondLatestReading.windSpeed &&
+      secondLatestReading.windSpeed < thirdLatestReading.windSpeed
+    ) {
+      weatherTrends.windSpeedTrend = 'decreasing';
+    }  
+  }
+    
+  return weatherTrends;
+},
+  
  async calculateMinMaxStats(station) {
   const minMaxStats = {
     minPressure: null,

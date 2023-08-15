@@ -1,0 +1,82 @@
+{{>menu active="user"}}
+
+<section class="section">
+  <h1 class="title">User Details</h1>
+
+<div class="content box">
+    <div class="columns">
+        <div class="column is-two-fifths">
+            <form action="/update-user/{{user._id}}" method="POST">
+
+                <!--        code below from https://bulma.io/documentation/form/input/-->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <p>Firstname:</p>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="text" value= "{{user.firstName}}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <p>Lastname:</p>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="text" value="{{user.lastName}}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <p>Email:</p>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <!-- code bellow from https://bulma.io/documentation/form/input/-->
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" value="{{user.email}}"  disabled>
+                                <span class="icon is-small is-left">
+                                  <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                  <i class="fas fa-check"></i>
+                                </span>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <p>Password:</p>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input" value="{{user.password}}" type="password" disabled>
+                                <span class="icon is-small is-left">
+                                  <i class="fas fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/user/edit/{{_id}}" class="button is-link is-info">
+          Edit
+        </a>
+            </form>
+        </div>
+    </div>
+</div>
+ </section>

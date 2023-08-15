@@ -27,8 +27,14 @@ export const dashboardController = {
         };
       const minMaxStats = await stationAnalytics.calculateMinMaxStats(readings);
       station.minMaxStats = minMaxStats;   
+      const  stationTrends = await stationAnalytics.showWeatherTrends(readings);
+      station.stationTrends = stationTrends;
       };
+    
+
       
+     // Sort stations alphabetically by name https://www.scaler.com/topics/javascript-alphabetical-sort/
+    stations.sort((a, b) => a.name.localeCompare(b.name));
     
     const viewData = {
       title: "Station Dashboard",
@@ -50,7 +56,7 @@ export const dashboardController = {
     };
     console.log(`adding station ${newStation.name}`);
     await stationStore.addStation(newStation);
-    response.redirect("/dashboard");
+    response.redirect("/station/" + newStation._id);
   },
   
   async deleteStation(request, response){
