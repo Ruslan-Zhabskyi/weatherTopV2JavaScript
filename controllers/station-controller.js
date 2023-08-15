@@ -10,6 +10,8 @@ export const stationController = {
     const station = await stationStore.getStationById(request.params.id);
 
     const minMaxStats = await stationAnalytics.calculateMinMaxStats(station);
+    
+    const stationTrends = await stationAnalytics.showWeatherTrends(station);
 
     const latestReading = await stationAnalytics.getLatestReading(station._id);
     
@@ -19,15 +21,16 @@ export const stationController = {
      latestReading.windBft = await conversions.windSpeedBeaufortConversion(latestReading.windSpeed);
      latestReading.windBftLabel = await conversions.windSpeedBeaufortConversionLabel(latestReading.windSpeed);
      latestReading.windChill = await conversions.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
-     latestReading.windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection);} 
-    
+     latestReading.windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection);
+     } 
     
     
     const viewData = {
       title: "Station",
       station: station,
       latestReading:latestReading,
-      minMaxStats: minMaxStats
+      minMaxStats: minMaxStats,
+      stationTrends:stationTrends
   
     };
     response.render("station-view", viewData);
@@ -36,14 +39,18 @@ export const stationController = {
   
   async addReading(request, response) {
     const station = await stationStore.getStationById(request.params.id);
+   
     const newReading = {
       code: Number(request.body.code),
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
       windDirection: Number(request.body.windDirection),
       pressure: Number(request.body.pressure),
+      timestamp: new Date().toLocaleString() // Add a timestamp, from: https://codedamn.com/news/javascript/how-to-convert-timestamp-to-date-in-javascript
+      
     };
     console.log(`adding track ${newReading.code}`);
+    console.log(`time added ${newReading.timestamp}`);
     await readingStore.addReading(station._id, newReading);
     response.redirect("/station/" + station._id);
   },
