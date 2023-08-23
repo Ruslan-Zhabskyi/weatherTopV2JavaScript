@@ -2,6 +2,7 @@ import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/readings-store.js";
 import {stationAnalytics} from "../utils/analytics.js";
 import {conversions} from "../utils/conversions.js";
+import axios from "axios";
 
 
 export const stationController = {
@@ -61,5 +62,31 @@ export const stationController = {
     console.log(`Deleting Reading ${readingId} from Station ${stationId}`);
     await readingStore.deleteReading(readingId);
     response.redirect("/station/" + stationId);
+  },
+  
+  async generateReading(request, response){
+    console.log("rendering new report");
+    const station = await stationStore.getStationLatLonById(request.params.id);
+    
+    let report = {};
+    
+    const lat = station.lat;
+    const lng = station.lon;
+    const apiKey = process.env.apiKey;
+
+    const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`
+    
+    const result = await axios.get(requestUrl);
+    if (result.status == 200) {
+      const newReading = result.data.current;
+      report.code = conversions.matchWeatherCode(newReading.weather[0].id);
+      report.temperature = newReading.temp;
+      report.windSpeed = newReading.wind_speed;
+      report.pressure = newReading.pressure;
+      report.windDirection = newReading.wind_deg;
+      report.timestamp = new Date().toLocaleString();
+    }
+    await readingStore.addReading(request.params.id, report);
+    response.redirect("/station/" + request.params.id);
   },
 };

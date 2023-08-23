@@ -16,6 +16,7 @@ router.get("/station/:id", stationController.index);
 router.post("/station/:id/addreading",stationController.addReading);
 router.get("/dashboard/deleteplaylist/:id",dashboardController.deleteStation);
 router.get("/station/:stationid/deletereading/:readingid",stationController.deleteReading);
+router.post("/station/:id/generatereading", stationController.generateReading);
 
 router.get("/", accountsController.index);
 router.get("/login", accountsController.login);
