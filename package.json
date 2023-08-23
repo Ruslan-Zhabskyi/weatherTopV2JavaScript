@@ -15,7 +15,8 @@
     "express-handlebars": "^6.0.7",
     "fs-extra": "^11.1.0",
     "lowdb": "^5.1.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "axios": "^1.4.0"
   },
   "repository": {
     "url": "https://github.com/wit-hdip-comp-sci-2023/playlist-1"

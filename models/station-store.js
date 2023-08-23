@@ -2,6 +2,7 @@ import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { readingStore } from "./readings-store.js";
 
+
 const db = initStore("stations");
 
 export const stationStore = {
@@ -23,6 +24,19 @@ export const stationStore = {
     const list = db.data.stations.find((station) => station._id === id);
     list.readings = await readingStore.getReadingsByStationId(list._id);
     return list;
+  },
+  
+ async getStationLatLonById(id) {
+    await db.read();
+    const station = db.data.stations.find((station) => station._id === id);
+    if (station) {
+      return {
+        lat: station.latitude,
+        lon: station.longitude,
+      };
+    } else {
+      return null;
+    }
   },
   
 
