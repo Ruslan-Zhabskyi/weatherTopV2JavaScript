@@ -35,25 +35,25 @@ windSpeedBeaufortConversionLabel(option) {
       return "Calm";
     } else if (option >= 1 && option <= 5) {
       return "Light Air";
-    } else if (option >= 6 && option <= 11) {
+    } else if (option > 5 && option <= 11) {
       return "Light Breeze";
-    } else if (option >= 12 && option <= 19) {
+    } else if (option > 11 && option <= 19) {
       return "Gentle Breeze";
-    } else if (option >= 20 && option <= 28) {
+    } else if (option > 19 && option <= 28) {
       return "Moderate Breeze";
-    } else if (option >= 29 && option <= 38) {
+    } else if (option > 28 && option <= 38) {
       return "Fresh Breeze";
-    } else if (option >= 39 && option <= 49) {
+    } else if (option > 38 && option <= 49) {
       return "Strong Breeze";
-    } else if (option >= 50 && option <= 61) {
+    } else if (option > 49 && option <= 61) {
       return "Near Gale";
-    } else if (option >= 62 && option <= 74) {
+    } else if (option > 61 && option <= 74) {
       return "Gale";
-    } else if (option >= 75 && option <= 88) {
+    } else if (option > 74 && option <= 88) {
       return "Severe Gale";
-    } else if (option >= 89 && option <= 102) {
+    } else if (option > 88 && option <= 102) {
       return "Strong Storm";
-    } else if (option >= 103 && option <= 117) {
+    } else if (option > 102 && option <= 117) {
       return "Violent Storm";
     } else {
       return "Unknown code";
@@ -65,25 +65,25 @@ windSpeedBeaufortConversionLabel(option) {
       return "0";
     } else if (option >= 1 && option <= 5) {
       return "1";
-    } else if (option >= 6 && option <= 11) {
+    } else if (option > 5 && option <= 11) {
       return "2";
-    } else if (option >= 12 && option <= 19) {
+    } else if (option > 11 && option <= 19) {
       return "3";
-    } else if (option >= 20 && option <= 28) {
+    } else if (option > 19 && option <= 28) {
       return "4";
-    } else if (option >= 29 && option <= 38) {
+    } else if (option > 28 && option <= 38) {
       return "5";
-    } else if (option >= 39 && option <= 49) {
+    } else if (option > 38 && option <= 49) {
       return "6";
-    } else if (option >= 50 && option <= 61) {
+    } else if (option > 49 && option <= 61) {
       return "7";
-    } else if (option >= 62 && option <= 74) {
+    } else if (option > 61 && option <= 74) {
       return "8";
-    } else if (option >= 75 && option <= 88) {
+    } else if (option > 74 && option <= 88) {
       return "9";
-    } else if (option >= 89 && option <= 102) {
+    } else if (option > 88 && option <= 102) {
       return "10";
-    } else if (option >= 103 && option <= 117) {
+    } else if (option > 102 && option <= 117) {
       return "11";
     } else {
       return "Unknown code";
@@ -136,7 +136,6 @@ windChillCalculator(tempreratureC, windSpeed) {
 reportCodeConverter(number) {
      return number - (number % 10);
       },
-  
   
 matchWeatherCode(code) { // created by Peter Fortune
   if (code === 800) return 100; // Clear

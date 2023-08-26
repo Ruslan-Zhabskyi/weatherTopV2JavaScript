@@ -57,6 +57,7 @@ export const dashboardController = {
     console.log(`adding station ${newStation.name}`);
     await stationStore.addStation(newStation);
     response.redirect("/station/" + newStation._id);
+    
   },
   
   async deleteStation(request, response){

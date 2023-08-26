@@ -100,7 +100,6 @@
                       {{latestReading.temperatureInF}} F <br>
                       Min: {{minMaxStats.minTemperature}} <br>
                       Max: {{minMaxStats.maxTemperature}} <br>
-                     Trend: {{stationTrends.temperatureTrend}}
                     </div>
 
                 </div>
@@ -162,7 +161,6 @@
                        {{latestReading.pressure}} hpa <br>
                       Min: {{minMaxStats.minPressure}} hpa <br>
                       Max: {{minMaxStats.maxPressure}} hpa <br>
-                      Trend: {{stationTrends.pressureTrend}}
                     </div>
 
                 </div>
@@ -172,8 +170,11 @@
 
     </div>
   </div>
-  {{> list-readings}}
-  {{> add-reading}}
-  {{>generate-reading}}
 
+
+  {{>trends}}
+  {{>list-readings}}
+  {{>add-reading}}
+  {{>generate-reading}}
+  
   
