@@ -23,6 +23,10 @@ export const stationController = {
      latestReading.windBftLabel = await conversions.windSpeedBeaufortConversionLabel(latestReading.windSpeed);
      latestReading.windChill = await conversions.windChillCalculator(latestReading.temperature, latestReading.windSpeed);
      latestReading.windDirection = await conversions.windDirectionCompassConversion(latestReading.windDirection);
+     latestReading.trendLabels = latestReading.trendLabels;
+     latestReading.tempTrend = latestReading.tempTrend;
+     latestReading.windSpeedTrend = latestReading.windSpeedTrend;
+     latestReading.pressureTrend = latestReading.pressureTrend;  
      } 
     
     
@@ -78,13 +82,33 @@ export const stationController = {
     
     const result = await axios.get(requestUrl);
     if (result.status == 200) {
-      const newReading = result.data.current;
-      report.code = conversions.matchWeatherCode(newReading.weather[0].id);
-      report.temperature = newReading.temp;
-      report.windSpeed = newReading.wind_speed;
-      report.pressure = newReading.pressure;
-      report.windDirection = newReading.wind_deg;
+      const reading = result.data.current;
+      report.code = conversions.matchWeatherCode(reading.weather[0].id);
+      report.temperature = reading.temp;
+      report.windSpeed = reading.wind_speed;
+      report.pressure = reading.pressure;
+      report.windDirection = reading.wind_deg;
       report.timestamp = new Date().toLocaleString();
+      
+      report.tempTrend = [];
+      report.windSpeedTrend = [];
+      report.trendLabels = [];
+      report.pressureTrend = [];
+      
+      const trends = result.data.daily;
+      for (let i = 0; i<trends.length;i++){
+       report.tempTrend.push(trends[i].temp.day);
+       report.windSpeedTrend.push(trends[i].wind_speed); 
+       report.pressureTrend.push(trends[i].pressure);
+        
+       const date = new Date(trends[i].dt * 1000);
+       // report.trendLabels.push(`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}` );
+        
+        
+        report.trendLabels.push(date.toLocaleString().split(',')[0].replace(',', ''));
+
+      }
+      
     }
     await readingStore.addReading(request.params.id, report);
     response.redirect("/station/" + request.params.id);

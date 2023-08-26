@@ -28,6 +28,13 @@
       "longitude": 146.0167,
       "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "9400cc7e-e29a-4796-b99c-63137e477860"
+    },
+    {
+      "name": "Nantes",
+      "latitude": 47.218102,
+      "longitude": -1.5528,
+      "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
+      "_id": "348cff6a-ab5f-4f51-aab3-0f664b08c267"
     }
   ]
 }
