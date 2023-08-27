@@ -24,8 +24,8 @@
     },
     {
       "name": "Howth ",
-      "latitude": -41.1,
-      "longitude": 146.0167,
+      "latitude": 53.378569,
+      "longitude": -6.057013,
       "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "9400cc7e-e29a-4796-b99c-63137e477860"
     },
@@ -35,6 +35,13 @@
       "longitude": -1.5528,
       "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "348cff6a-ab5f-4f51-aab3-0f664b08c267"
+    },
+    {
+      "name": "Cork",
+      "latitude": 51.903614,
+      "longitude": -8.468399,
+      "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
+      "_id": "663f822c-8bc3-49f8-9292-d16ba1e20e22"
     }
   ]
 }

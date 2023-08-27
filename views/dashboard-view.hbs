@@ -3,6 +3,33 @@
 <section class="section">
 
  {{>list-stations}}
+  
+ <div id="map"></div>
+  
+  
+  <script>var map = L.map('map', {
+    center: [53.4494762, -7.5029786],
+    zoom: 6
+    });
+  
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+  
+  {{#each stations}}
+  
+    
+  var marker = L.marker(
+    [{{latitude}},  {{longitude}}]
+    
+    ).addTo(map)
+  .bindPopup(' The temperature is {{temperature}}C, {{weatherCodeDecrypted}}');
+
+    {{/each}}
+    
+  </script>
+  
  {{>add-station}}
 </section>
 
