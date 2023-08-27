@@ -1,45 +1,43 @@
 <table class="table is-fullwidth">
-  <thead>
-  <tr>
-    <th>Timestamp</th>
-    <th>Code</th>
-    <th>Temperature</th>
-    <th>Wind Speed</th>
-    <th>Wind Direction</th>
-    <th>Pressure</th>
-  </tr>
-  </thead>
-  <tbody>
- {{#each station.readings}}
-     
-  <tr>
-    <td>
-    {{timestamp}}
-    </td>
-    <td>
-       {{code}}
-    </td>
-    <td>
-       {{temperature}}
-    </td>
-    <td>
-        {{windSpeed}}
-    </td>
-    <td>
-        {{windDirection}}
-    </td>
-    <td>
-        {{pressure}}
-    </td>
-    <td>
-      
-        <a href="/station/{{../station._id}}/deletereading/{{_id}}" class="button">
-    {{>icons/delete}}
-  </a>
-      </td>
-  </tr>
-    
-{{/each}}
-    
-  </tbody>
+    <thead>
+    <tr>
+        <th>Timestamp</th>
+        <th>Code</th>
+        <th>Temperature</th>
+        <th>Wind Speed</th>
+        <th>Wind Direction</th>
+        <th>Pressure</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each station.readings}}
+
+    <tr>
+        <td>
+            {{timestamp}}
+        </td>
+        <td>
+            {{code}}
+        </td>
+        <td>
+            {{temperature}}
+        </td>
+        <td>
+            {{windSpeed}}
+        </td>
+        <td>
+            {{windDirection}}
+        </td>
+        <td>
+            {{pressure}}
+        </td>
+        <td>
+
+            <a href="/station/{{../station._id}}/deletereading/{{_id}}" class="button">
+                {{>icons/delete}}
+            </a>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
 </table>

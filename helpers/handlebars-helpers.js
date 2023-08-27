@@ -1,6 +1,6 @@
 //author of handlebars helpers: Kieron Garvey
 export const handlebarsHelpers = {
-   // equal to
+  // equal to
   eq: function (a, b) {
     return a === b;
   },
@@ -34,19 +34,18 @@ export const handlebarsHelpers = {
   },
   // If Station
   ifStation: function (a) {
-   if (a === "Station") {
-     return 1;
-   } else {
-     return 0;
-   }
- },
- // testing
-   test: function (a, b) {
+    if (a === "Station") {
+      return 1;
+    } else {
+      return 0;
+    }
+  },
+  // testing
+  test: function (a, b) {
     if (a >= b) {
       return "Test";
     } else {
       return "Fail";
     }
   },
-
 };

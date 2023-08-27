@@ -2,7 +2,6 @@ import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { readingStore } from "./readings-store.js";
 
-
 const db = initStore("stations");
 
 export const stationStore = {
@@ -25,8 +24,8 @@ export const stationStore = {
     list.readings = await readingStore.getReadingsByStationId(list._id);
     return list;
   },
-  
- async getStationLatLonById(id) {
+
+  async getStationLatLonById(id) {
     await db.read();
     const station = db.data.stations.find((station) => station._id === id);
     if (station) {
@@ -38,7 +37,6 @@ export const stationStore = {
       return null;
     }
   },
-  
 
   async deleteStationById(id) {
     await db.read();
@@ -51,7 +49,7 @@ export const stationStore = {
     db.data.stations = [];
     await db.write();
   },
-  
+
   async getStationsByUserId(userid) {
     await db.read();
     return db.data.stations.filter((station) => station.userid === userid);
