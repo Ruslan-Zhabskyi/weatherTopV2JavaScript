@@ -9,9 +9,7 @@
   {{#each stations}}
 
     var marker = L.marker( [{{latitude}},
-    {{longitude}}] ).addTo(map) .bindPopup(' The temperature is
-    {{temperature}}C,
-    {{weatherCodeDecrypted}}');
+    {{longitude}}] ).addTo(map) .bindPopup(' The temperature is {{temperature}}C,{{weatherCodeDecrypted}}');
 
   {{/each}}
 
