@@ -21,6 +21,13 @@
       "email": "odel@test.ie",
       "password": "111",
       "_id": "5feeb2e4-f4a9-4227-955e-0060b7fdcf8b"
+    },
+    {
+      "firstName": "Tom",
+      "lastName": "Edit",
+      "email": "user@test.ie",
+      "password": "121",
+      "_id": "c1f4328e-3274-444c-958a-814be22b808d"
     }
   ]
 }
