@@ -35,6 +35,13 @@
       "longitude": -1.5528,
       "userid": "39d512fd-c427-463c-bfd4-2f99055ae270",
       "_id": "348cff6a-ab5f-4f51-aab3-0f664b08c267"
+    },
+    {
+      "name": "Kilkenny",
+      "latitude": 52.577696,
+      "longitude": -7.218002,
+      "userid": "7dedb76d-2a1e-4fa5-8b03-c58d0887c7d0",
+      "_id": "81ce9ce4-8fca-43ec-9699-601d77d743fc"
     }
   ]
 }
