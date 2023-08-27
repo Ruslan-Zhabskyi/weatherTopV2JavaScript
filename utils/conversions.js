@@ -2,14 +2,13 @@ export const conversions = {
   convertToFahrenheit(temperature) {
     // Convert temperature from Celsius to Fahrenheit using the formula F = (C * 9) /5 + 32
     let fahrenheit = (temperature * 9) / 5 + 32;
-     // Return the temperature in Fahrenheit
+    // Return the temperature in Fahrenheit
     return Math.round(fahrenheit * 100.0) / 100.0;
   },
-  
+
   weatherCodes(option) {
     switch (option) {
-      case 
-        100:
+      case 100:
         return "Clear";
       case 200:
         return "Partial clouds";
@@ -29,8 +28,8 @@ export const conversions = {
         return "Unknown code";
     }
   },
-  
-windSpeedBeaufortConversionLabel(option) {
+
+  windSpeedBeaufortConversionLabel(option) {
     if (option >= 0 && option < 1) {
       return "Calm";
     } else if (option >= 1 && option <= 5) {
@@ -60,7 +59,7 @@ windSpeedBeaufortConversionLabel(option) {
     }
   },
 
- windSpeedBeaufortConversion(option) {
+  windSpeedBeaufortConversion(option) {
     if (option >= 0 && option < 1) {
       return "0";
     } else if (option >= 1 && option <= 5) {
@@ -90,7 +89,7 @@ windSpeedBeaufortConversionLabel(option) {
     }
   },
 
-windDirectionCompassConversion(option) {
+  windDirectionCompassConversion(option) {
     if (option >= 348.75 || option < 11.25) {
       return "North";
     } else if (option >= 11.25 && option < 33.75) {
@@ -127,27 +126,31 @@ windDirectionCompassConversion(option) {
       return "Unknown code";
     }
   },
-  
-windChillCalculator(tempreratureC, windSpeed) {
-    let result = (13.12 + 0.6215 * tempreratureC - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * tempreratureC * Math.pow(windSpeed, 0.16));
+
+  windChillCalculator(tempreratureC, windSpeed) {
+    let result =
+      13.12 +
+      0.6215 * tempreratureC -
+      11.37 * Math.pow(windSpeed, 0.16) +
+      0.3965 * tempreratureC * Math.pow(windSpeed, 0.16);
     return Math.round(result * 10.0) / 10.0;
   },
-  
-reportCodeConverter(number) {
-     return number - (number % 10);
-      },
-  
-matchWeatherCode(code) { // created by Peter Fortune
-  if (code === 800) return 100; // Clear
-  if (code >= 801 && code <= 804) return 200; // Partial clouds
-  if (code >= 701 && code <= 781) return 300; // Cloudy (fog, mist, etc.)
-  if (code >= 300 && code <= 501) return 400; // Light Showers (drizzle)
-  if (code >= 502 && code <= 531) return 500; // Heavy Showers (rain)
-  if (code >= 400 && code < 500) return 600; // Rain
-  if (code >= 600 && code <= 622) return 700; // Snow
-  if (code >= 200 && code <= 232) return 800; // Thunder
 
-  return "Unknown weather condition";
-}
+  reportCodeConverter(number) {
+    return number - (number % 10);
+  },
 
+  matchWeatherCode(code) {
+    // created by Peter Fortune
+    if (code === 800) return 100; // Clear
+    if (code >= 801 && code <= 804) return 200; // Partial clouds
+    if (code >= 701 && code <= 781) return 300; // Cloudy (fog, mist, etc.)
+    if (code >= 300 && code <= 501) return 400; // Light Showers (drizzle)
+    if (code >= 502 && code <= 531) return 500; // Heavy Showers (rain)
+    if (code >= 400 && code < 500) return 600; // Rain
+    if (code >= 600 && code <= 622) return 700; // Snow
+    if (code >= 200 && code <= 232) return 800; // Thunder
+
+    return "Unknown weather condition";
+  },
 };

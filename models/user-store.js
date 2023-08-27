@@ -26,12 +26,12 @@ export const userStore = {
     await db.read();
     return db.data.users.find((user) => user.email === email);
   },
-  
+
   async getUserByPassword(password) {
     await db.read();
     return db.data.users.find((user) => user.password === password);
   },
-  
+
   async deleteUserById(id) {
     await db.read();
     const index = db.data.users.findIndex((user) => user._id === id);
@@ -43,7 +43,7 @@ export const userStore = {
     db.data.users = [];
     await db.write();
   },
-  
+
   async updateUser(user, updatedUser) {
     user.firstName = updatedUser.firstName;
     user.lastName = updatedUser.lastName;

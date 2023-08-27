@@ -1,5 +1,7 @@
-   .card {
-        height: 100%;
-    }
+.card {
+  height: 100%;
+}
 
-#map { height: 400px; }
+#map {
+  height: 400px;
+}
