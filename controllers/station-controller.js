@@ -7,6 +7,8 @@ import axios from "axios";
 
 export const stationController = {
   async index(request, response) {
+    
+    
   
     const station = await stationStore.getStationById(request.params.id);
 
@@ -35,7 +37,7 @@ export const stationController = {
       station: station,
       latestReading:latestReading,
       minMaxStats: minMaxStats,
-      stationTrends:stationTrends
+      stationTrends:stationTrends,
   
     };
     response.render("station-view", viewData);

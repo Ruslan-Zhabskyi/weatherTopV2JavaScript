@@ -8,7 +8,7 @@ export const dashboardController = {
   async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
     const stations = await stationStore.getStationsByUserId(loggedInUser._id);
-    
+  
     
     for(const station of stations){
       const latestReading = await stationAnalytics.getLatestReading(station._id);

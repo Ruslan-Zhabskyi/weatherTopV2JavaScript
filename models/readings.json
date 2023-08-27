@@ -500,6 +500,76 @@
       "timestamp": "8/26/2023, 1:31:16 PM",
       "_id": "f602a440-d646-4bcf-a53c-ef96334d8781",
       "stationid": "9400cc7e-e29a-4796-b99c-63137e477860"
+    },
+    {
+      "code": 400,
+      "temperature": 12,
+      "windSpeed": 4,
+      "windDirection": 220,
+      "pressure": 1020,
+      "timestamp": "8/27/2023, 9:35:46 AM",
+      "_id": "861d30e1-018b-4d75-8d94-b76c71f268ad",
+      "stationid": "663f822c-8bc3-49f8-9292-d16ba1e20e22"
+    },
+    {
+      "code": 400,
+      "temperature": 13,
+      "windSpeed": 3.9,
+      "windDirection": 219,
+      "pressure": 1015,
+      "timestamp": "8/27/2023, 9:36:08 AM",
+      "_id": "ca5c8acd-2417-4d07-bbf1-bca1f00517c5",
+      "stationid": "663f822c-8bc3-49f8-9292-d16ba1e20e22"
+    },
+    {
+      "code": 400,
+      "temperature": 13.57,
+      "windSpeed": 3.09,
+      "pressure": 1014,
+      "windDirection": 230,
+      "timestamp": "8/27/2023, 9:36:10 AM",
+      "tempTrend": [
+        14.51,
+        18.32,
+        18.5,
+        15.64,
+        19.19,
+        17.64,
+        18.25,
+        19.24
+      ],
+      "windSpeedTrend": [
+        7.41,
+        4.53,
+        5.64,
+        4.45,
+        5.35,
+        3.49,
+        4.7,
+        5.67
+      ],
+      "trendLabels": [
+        "8/27/2023",
+        "8/28/2023",
+        "8/29/2023",
+        "8/30/2023",
+        "8/31/2023",
+        "9/1/2023",
+        "9/2/2023",
+        "9/3/2023"
+      ],
+      "pressureTrend": [
+        1014,
+        1018,
+        1014,
+        1013,
+        1008,
+        1015,
+        1011,
+        1013
+      ],
+      "_id": "e87e036a-4433-4075-a82d-5b80263cbb27",
+      "stationid": "663f822c-8bc3-49f8-9292-d16ba1e20e22"
     }
   ]
 }
