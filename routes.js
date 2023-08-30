@@ -6,7 +6,7 @@ import { accountsController } from './controllers/accounts.js';
 
 export const router = express.Router();
 
-// router.get("/", dashboardController.index); as we replaced it with line 20
+
 
 router.get("/dashboard", dashboardController.index);
 router.post("/dashboard/addstation", dashboardController.addStation);
@@ -14,7 +14,7 @@ router.get("/about", aboutController.index);
 router.get("/station/:id", stationController.index);
 
 router.post("/station/:id/addreading",stationController.addReading);
-router.get("/dashboard/deleteplaylist/:id",dashboardController.deleteStation);
+router.get("/dashboard/deletestation/:id",dashboardController.deleteStation);
 router.get("/station/:stationid/deletereading/:readingid",stationController.deleteReading);
 router.post("/station/:id/generatereading", stationController.generateReading);
 
