@@ -111,7 +111,7 @@ export const stationController = {
         report.pressureTrend.push(trends[i].pressure);
 
         const date = new Date(trends[i].dt * 1000);
-        // report.trendLabels.push(`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}` );
+
 
         report.trendLabels.push(
           date.toLocaleString().split(",")[0].replace(",", "")

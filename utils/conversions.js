@@ -1,8 +1,8 @@
 export const conversions = {
   convertToFahrenheit(temperature) {
-    // Convert temperature from Celsius to Fahrenheit using the formula F = (C * 9) /5 + 32
+
     let fahrenheit = (temperature * 9) / 5 + 32;
-    // Return the temperature in Fahrenheit
+
     return Math.round(fahrenheit * 100.0) / 100.0;
   },
 
